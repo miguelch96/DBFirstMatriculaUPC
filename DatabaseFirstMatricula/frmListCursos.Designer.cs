@@ -130,6 +130,7 @@
             this.Controls.Add(this.label1);
             this.Name = "frmListCursos";
             this.Text = "frmListCursos";
+            this.Load += new System.EventHandler(this.frmListCursos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaCursos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

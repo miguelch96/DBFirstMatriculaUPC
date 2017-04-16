@@ -19,6 +19,7 @@ namespace DatabaseFirstMatricula
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
+            /*
             //context que trae,almacena y envia datos a la BBDD
             var context = new MatriculaEntities();
 
@@ -41,6 +42,7 @@ namespace DatabaseFirstMatricula
             alumno.Nombre = "Miguel";
             alumno.Codigo = "201412510";
             context.SaveChanges();
+            */
             
         }
 
@@ -49,6 +51,12 @@ namespace DatabaseFirstMatricula
             var frmlistCursos = new frmListCursos();
             frmlistCursos.Show();
 
+        }
+
+        private void alumnosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frmlistaAlumnos = new frmListAlumnos();
+            frmlistaAlumnos.Show();
         }
     }
 }

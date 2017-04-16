@@ -84,5 +84,10 @@ namespace DatabaseFirstMatricula
             frmeditCurso.ShowDialog();
             CargarResultados();
         }
+
+        private void frmListCursos_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
