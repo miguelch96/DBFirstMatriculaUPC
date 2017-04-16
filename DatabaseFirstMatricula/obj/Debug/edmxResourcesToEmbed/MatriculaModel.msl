@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MatriculaModelStoreContainer" CdmEntityContainer="MatriculaEntities">
+    <EntitySetMapping Name="Alumno">
+      <EntityTypeMapping TypeName="MatriculaModel.Alumno">
+        <MappingFragment StoreEntitySet="Alumno">
+          <ScalarProperty Name="AlumnoId" ColumnName="AlumnoId" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Curso">
+      <EntityTypeMapping TypeName="MatriculaModel.Curso">
+        <MappingFragment StoreEntitySet="Curso">
+          <ScalarProperty Name="CursoId" ColumnName="CursoId" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Inasistencia">
+      <EntityTypeMapping TypeName="MatriculaModel.Inasistencia">
+        <MappingFragment StoreEntitySet="Inasistencia">
+          <ScalarProperty Name="InasistenciaId" ColumnName="InasistenciaId" />
+          <ScalarProperty Name="MatriculaId" ColumnName="MatriculaId" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Matricula">
+      <EntityTypeMapping TypeName="MatriculaModel.Matricula">
+        <MappingFragment StoreEntitySet="Matricula">
+          <ScalarProperty Name="MatriculaId" ColumnName="MatriculaId" />
+          <ScalarProperty Name="AlumnoId" ColumnName="AlumnoId" />
+          <ScalarProperty Name="CursoId" ColumnName="CursoId" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

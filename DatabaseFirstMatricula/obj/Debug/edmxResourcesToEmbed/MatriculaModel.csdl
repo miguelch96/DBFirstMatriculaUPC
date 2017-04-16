@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MatriculaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Alumno">
+    <Key>
+      <PropertyRef Name="AlumnoId" />
+    </Key>
+    <Property Name="AlumnoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Apellido" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Estado" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Matricula" Relationship="Self.FK_Matricula_Alumno" FromRole="Alumno" ToRole="Matricula" />
+  </EntityType>
+  <EntityType Name="Curso">
+    <Key>
+      <PropertyRef Name="CursoId" />
+    </Key>
+    <Property Name="CursoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Estado" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Matricula" Relationship="Self.FK_Matricula_Curso" FromRole="Curso" ToRole="Matricula" />
+  </EntityType>
+  <EntityType Name="Inasistencia">
+    <Key>
+      <PropertyRef Name="InasistenciaId" />
+    </Key>
+    <Property Name="InasistenciaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MatriculaId" Type="Int32" Nullable="false" />
+    <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Estado" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Matricula" Relationship="Self.FK_Inasistencia_Matricula" FromRole="Inasistencia" ToRole="Matricula" />
+  </EntityType>
+  <EntityType Name="Matricula">
+    <Key>
+      <PropertyRef Name="MatriculaId" />
+    </Key>
+    <Property Name="MatriculaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AlumnoId" Type="Int32" Nullable="false" />
+    <Property Name="CursoId" Type="Int32" Nullable="false" />
+    <Property Name="Estado" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Alumno" Relationship="Self.FK_Matricula_Alumno" FromRole="Matricula" ToRole="Alumno" />
+    <NavigationProperty Name="Curso" Relationship="Self.FK_Matricula_Curso" FromRole="Matricula" ToRole="Curso" />
+    <NavigationProperty Name="Inasistencia" Relationship="Self.FK_Inasistencia_Matricula" FromRole="Matricula" ToRole="Inasistencia" />
+  </EntityType>
+  <Association Name="FK_Matricula_Alumno">
+    <End Role="Alumno" Type="Self.Alumno" Multiplicity="1" />
+    <End Role="Matricula" Type="Self.Matricula" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Alumno">
+        <PropertyRef Name="AlumnoId" />
+      </Principal>
+      <Dependent Role="Matricula">
+        <PropertyRef Name="AlumnoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Matricula_Curso">
+    <End Role="Curso" Type="Self.Curso" Multiplicity="1" />
+    <End Role="Matricula" Type="Self.Matricula" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Curso">
+        <PropertyRef Name="CursoId" />
+      </Principal>
+      <Dependent Role="Matricula">
+        <PropertyRef Name="CursoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Inasistencia_Matricula">
+    <End Role="Matricula" Type="Self.Matricula" Multiplicity="1" />
+    <End Role="Inasistencia" Type="Self.Inasistencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Matricula">
+        <PropertyRef Name="MatriculaId" />
+      </Principal>
+      <Dependent Role="Inasistencia">
+        <PropertyRef Name="MatriculaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MatriculaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Alumno" EntityType="Self.Alumno" />
+    <EntitySet Name="Curso" EntityType="Self.Curso" />
+    <EntitySet Name="Inasistencia" EntityType="Self.Inasistencia" />
+    <EntitySet Name="Matricula" EntityType="Self.Matricula" />
+    <AssociationSet Name="FK_Matricula_Alumno" Association="Self.FK_Matricula_Alumno">
+      <End Role="Alumno" EntitySet="Alumno" />
+      <End Role="Matricula" EntitySet="Matricula" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Matricula_Curso" Association="Self.FK_Matricula_Curso">
+      <End Role="Curso" EntitySet="Curso" />
+      <End Role="Matricula" EntitySet="Matricula" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Inasistencia_Matricula" Association="Self.FK_Inasistencia_Matricula">
+      <End Role="Matricula" EntitySet="Matricula" />
+      <End Role="Inasistencia" EntitySet="Inasistencia" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

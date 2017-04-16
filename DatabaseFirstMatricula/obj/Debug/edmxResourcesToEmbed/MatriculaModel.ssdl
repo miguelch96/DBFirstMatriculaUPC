@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MatriculaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Alumno">
+    <Key>
+      <PropertyRef Name="AlumnoId" />
+    </Key>
+    <Property Name="AlumnoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Codigo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Apellido" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Estado" Type="varchar" MaxLength="3" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Curso">
+    <Key>
+      <PropertyRef Name="CursoId" />
+    </Key>
+    <Property Name="CursoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Codigo" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Estado" Type="varchar" MaxLength="3" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Inasistencia">
+    <Key>
+      <PropertyRef Name="InasistenciaId" />
+    </Key>
+    <Property Name="InasistenciaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MatriculaId" Type="int" Nullable="false" />
+    <Property Name="Fecha" Type="datetime" Nullable="false" />
+    <Property Name="Estado" Type="varchar" MaxLength="3" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Matricula">
+    <Key>
+      <PropertyRef Name="MatriculaId" />
+    </Key>
+    <Property Name="MatriculaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AlumnoId" Type="int" Nullable="false" />
+    <Property Name="CursoId" Type="int" Nullable="false" />
+    <Property Name="Estado" Type="varchar" MaxLength="3" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Inasistencia_Matricula">
+    <End Role="Matricula" Type="Self.Matricula" Multiplicity="1" />
+    <End Role="Inasistencia" Type="Self.Inasistencia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Matricula">
+        <PropertyRef Name="MatriculaId" />
+      </Principal>
+      <Dependent Role="Inasistencia">
+        <PropertyRef Name="MatriculaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Matricula_Alumno">
+    <End Role="Alumno" Type="Self.Alumno" Multiplicity="1" />
+    <End Role="Matricula" Type="Self.Matricula" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Alumno">
+        <PropertyRef Name="AlumnoId" />
+      </Principal>
+      <Dependent Role="Matricula">
+        <PropertyRef Name="AlumnoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Matricula_Curso">
+    <End Role="Curso" Type="Self.Curso" Multiplicity="1" />
+    <End Role="Matricula" Type="Self.Matricula" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Curso">
+        <PropertyRef Name="CursoId" />
+      </Principal>
+      <Dependent Role="Matricula">
+        <PropertyRef Name="CursoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MatriculaModelStoreContainer">
+    <EntitySet Name="Alumno" EntityType="Self.Alumno" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Curso" EntityType="Self.Curso" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Inasistencia" EntityType="Self.Inasistencia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Matricula" EntityType="Self.Matricula" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Inasistencia_Matricula" Association="Self.FK_Inasistencia_Matricula">
+      <End Role="Matricula" EntitySet="Matricula" />
+      <End Role="Inasistencia" EntitySet="Inasistencia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Matricula_Alumno" Association="Self.FK_Matricula_Alumno">
+      <End Role="Alumno" EntitySet="Alumno" />
+      <End Role="Matricula" EntitySet="Matricula" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Matricula_Curso" Association="Self.FK_Matricula_Curso">
+      <End Role="Curso" EntitySet="Curso" />
+      <End Role="Matricula" EntitySet="Matricula" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
