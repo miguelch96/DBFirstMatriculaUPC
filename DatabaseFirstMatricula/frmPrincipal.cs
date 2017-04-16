@@ -63,5 +63,11 @@ namespace DatabaseFirstMatricula
         {
 
         }
+
+        private void matricularToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frmprincipal = new frmLogin();
+            frmprincipal.Show();
+        }
     }
 }

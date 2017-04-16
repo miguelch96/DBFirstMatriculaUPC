@@ -123,6 +123,7 @@
             this.matricularToolStripMenuItem.Name = "matricularToolStripMenuItem";
             this.matricularToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.matricularToolStripMenuItem.Text = "Matricular alumno";
+            this.matricularToolStripMenuItem.Click += new System.EventHandler(this.matricularToolStripMenuItem_Click);
             // 
             // registrarAsistenciaToolStripMenuItem
             // 

@@ -102,6 +102,18 @@
     <Compile Include="frmListCursos.Designer.cs">
       <DependentUpon>frmListCursos.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMatriculaAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMatriculaAlumno.Designer.cs">
+      <DependentUpon>frmMatriculaAlumno.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +154,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmListCursos.resx">
       <DependentUpon>frmListCursos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMatriculaAlumno.resx">
+      <DependentUpon>frmMatriculaAlumno.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>

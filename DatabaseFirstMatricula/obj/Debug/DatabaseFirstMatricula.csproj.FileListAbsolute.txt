@@ -31,3 +31,5 @@ C:\Users\Miguel\OneDrive\2017-1\Aplicaciones Web\Sesion3.1\DBFirstMatricula\Data
 C:\Users\Miguel\OneDrive\2017-1\Aplicaciones Web\Sesion3.1\DBFirstMatricula\DatabaseFirstMatricula\obj\Debug\DatabaseFirstMatricula.frmPrincipal.resources
 C:\Users\Miguel\OneDrive\2017-1\Aplicaciones Web\Sesion3.1\DBFirstMatricula\DatabaseFirstMatricula\obj\Debug\DatabaseFirstMatricula.Properties.Resources.resources
 C:\Users\Miguel\OneDrive\2017-1\Aplicaciones Web\Sesion3.1\DBFirstMatricula\DatabaseFirstMatricula\obj\Debug\DatabaseFirstMatricula.csproj.GenerateResource.Cache
+C:\Users\Miguel\OneDrive\2017-1\Aplicaciones Web\Sesion3.1\DBFirstMatricula\DatabaseFirstMatricula\obj\Debug\DatabaseFirstMatricula.frmLogin.resources
+C:\Users\Miguel\OneDrive\2017-1\Aplicaciones Web\Sesion3.1\DBFirstMatricula\DatabaseFirstMatricula\obj\Debug\DatabaseFirstMatricula.frmMatriculaAlumno.resources
