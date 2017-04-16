@@ -58,5 +58,10 @@ namespace DatabaseFirstMatricula
             var frmlistaAlumnos = new frmListAlumnos();
             frmlistaAlumnos.Show();
         }
+
+        private void registrarAsistenciaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

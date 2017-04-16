@@ -39,6 +39,8 @@
             this.alumnosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.matriculaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.asistenciasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.matricularToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registrarAsistenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -102,15 +104,32 @@
             // 
             // matriculaToolStripMenuItem
             // 
+            this.matriculaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.matricularToolStripMenuItem});
             this.matriculaToolStripMenuItem.Name = "matriculaToolStripMenuItem";
             this.matriculaToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.matriculaToolStripMenuItem.Text = "Matricula";
             // 
             // asistenciasToolStripMenuItem
             // 
+            this.asistenciasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.registrarAsistenciaToolStripMenuItem});
             this.asistenciasToolStripMenuItem.Name = "asistenciasToolStripMenuItem";
             this.asistenciasToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
             this.asistenciasToolStripMenuItem.Text = "Asistencias";
+            // 
+            // matricularToolStripMenuItem
+            // 
+            this.matricularToolStripMenuItem.Name = "matricularToolStripMenuItem";
+            this.matricularToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.matricularToolStripMenuItem.Text = "Matricular alumno";
+            // 
+            // registrarAsistenciaToolStripMenuItem
+            // 
+            this.registrarAsistenciaToolStripMenuItem.Name = "registrarAsistenciaToolStripMenuItem";
+            this.registrarAsistenciaToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.registrarAsistenciaToolStripMenuItem.Text = "Registrar asistencia";
+            this.registrarAsistenciaToolStripMenuItem.Click += new System.EventHandler(this.registrarAsistenciaToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 
@@ -142,6 +161,8 @@
         private System.Windows.Forms.ToolStripMenuItem alumnosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem matriculaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem asistenciasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem matricularToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem registrarAsistenciaToolStripMenuItem;
     }
 }
 
