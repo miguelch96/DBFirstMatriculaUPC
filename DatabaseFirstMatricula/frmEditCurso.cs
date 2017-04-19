@@ -34,7 +34,11 @@ namespace DatabaseFirstMatricula
                 var curso=context.Curso.Find(CursoId);
                 txtCodigo.Text = curso.Codigo;
                 txtNombre.Text = curso.Nombre;
-                checkActivo.Checked = curso.Estado == "ACT";
+                if (curso.Estado == "ACT")
+                    checkActivo.Checked = true;
+                else
+                    checkActivo.Checked = false;
+                
                
             }
 

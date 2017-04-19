@@ -33,8 +33,13 @@ namespace DatabaseFirstMatricula
                 txtCodigo.Text = alumno.Codigo;
                 txtNombre.Text = alumno.Nombre;
                 txtApellido.Text = alumno.Apellido;
-                if (checkEstado.Checked)
-                checkEstado.Checked = alumno.Estado == "ACT";
+
+                if (alumno.Estado == "ACT")
+                    checkEstado.Checked = true;
+                else
+                    checkEstado.Checked = false;
+
+
             }
 
             else

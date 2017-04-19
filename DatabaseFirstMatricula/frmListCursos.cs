@@ -14,8 +14,10 @@ namespace DatabaseFirstMatricula
     {
         public MatriculaEntities context { get; set; }
         public frmListCursos()
-        {
+        {     
             InitializeComponent();
+
+            dgvListaCursos.AutoGenerateColumns = false;
             Cargar();
         }
 
@@ -28,7 +30,8 @@ namespace DatabaseFirstMatricula
         private void CargarResultados()
         {
             var filtro = txtFiltro.Text;
-            if(cbbTipoFiltro.SelectedIndex==0)//Busqueda por codigo
+            context = new MatriculaEntities();
+            if (cbbTipoFiltro.SelectedIndex==0)//Busqueda por codigo
             {
                 var resultados = context.Curso.Where(x => x.Codigo.Contains(filtro))
                 .ToList();
@@ -86,6 +89,11 @@ namespace DatabaseFirstMatricula
         }
 
         private void frmListCursos_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvListaCursos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

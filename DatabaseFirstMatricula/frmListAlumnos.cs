@@ -16,6 +16,7 @@ namespace DatabaseFirstMatricula
         public frmListAlumnos()
         {
             InitializeComponent();
+            dgvListaAlumnos.AutoGenerateColumns = false;
             Cargar();
         }
 
@@ -28,6 +29,15 @@ namespace DatabaseFirstMatricula
         private void CargarResultados()
         {
             var filtro = txtFiltro.Text;
+           /* var query = context.Alumno.AsQueryable();
+            foreach(var token in filtro.Split(','))
+            {
+                query = query.Where(x => x.Codigo.Contains(token) ||
+                                    x=>x.Nombre.Contains(token) ||
+                                  x=>x.Apellido.Contains(token));
+            }
+            */
+            context = new MatriculaEntities();
 
             if (cbbTipoFiltro.SelectedIndex == 0)//Busqueda por codigo
             {
@@ -88,12 +98,17 @@ namespace DatabaseFirstMatricula
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (dgvListaAlumnos.SelectedRows.Count == 0)//si no se selecciono ninguna fila
+               // MessageBox.Show("Esta seguro de elimianr este alumno?","Eliminar",MessageBoxButtons.YesNo)!=DialogResult.Yes);
                 return;
+
 
             var alumnoId = Convert.ToInt32(dgvListaAlumnos.SelectedRows[0].Cells["AlumnoId"].Value);
 
             context.Alumno.Remove(context.Alumno.Where(x => x.AlumnoId == alumnoId).First());
             context.SaveChanges();
+
+            //var alumno = context.Alumno.Find(alumnoId);
+            //context.Alumno.Remove(alumno);
             CargarResultados();
         }
 
